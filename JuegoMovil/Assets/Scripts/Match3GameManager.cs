@@ -123,7 +123,7 @@ public class Match3GameManager : MonoBehaviour {
         return true;
     }
 
-    void SwapBoxes(int x1, int y1, int x2, int y2)//cambio de las casillas y comporbar combinaciones etc
+    void SwapBoxes(int x1, int y1, int x2, int y2) //cambio de las casillas y comporbar combinaciones etc
     {
         MoveTile(x1, y1, x2, y2);
 
@@ -133,7 +133,7 @@ public class Match3GameManager : MonoBehaviour {
         List<Tile> DestroyArray = Horizontal();
         DestroyArray.AddRange(Vertical());
 
-        if (DestroyArray.Count == 0) MoveTile(x1, y1, x2, y2);//si no hay casillas a eliminar se vuelven a cambiar las posiciones
+        if (DestroyArray.Count == 0) MoveTile(x1, y1, x2, y2); //si no hay casillas a eliminar se vuelven a cambiar las posiciones
 
         DestroySquares();
     }
@@ -219,9 +219,9 @@ public class Match3GameManager : MonoBehaviour {
     IEnumerator BoardUpdate()
     {
         bool Sw = true;
-        movement = false;//desactivar movimiento mientras se actualiza el tablero
+        movement = false; //desactivar movimiento mientras se actualiza el tablero
 
-        while (Sw)//comprobar constantemente que si hay un espacio vacío se caiga el bloque de arriba
+        while (Sw) //comprobar constantemente que si hay un espacio vacío se caiga el bloque de arriba
         {
             Sw = false;//se resetea todo el rato para el momento en el que no haya mas casillas lo deje de hacer
             for (int j = 0; j < sizeY * 2; j++)
