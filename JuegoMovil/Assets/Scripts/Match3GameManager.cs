@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Match3GameManager : MonoBehaviour {
+public class Match3GameManager : MonoBehaviour
+{
 
     Tile[,] Board;
 
     [SerializeField]
-    int sizeX; 
+    int sizeX;
     public int sizeY;
 
     [SerializeField]
@@ -45,7 +46,7 @@ public class Match3GameManager : MonoBehaviour {
     Box WinnieHead;
 
 
-    void Start ()
+    void Start()
     {
         print(DeclanPoints + "ID " + WinniePoints + "IW " + NASSPoints + "IN " + CarolPoints + "IC ");
 
@@ -54,7 +55,7 @@ public class Match3GameManager : MonoBehaviour {
         {
             for (int j = 0; j < sizeY; j++)
             {
-                CreateTile(i,j);
+                CreateTile(i, j);
             }
         }
 
@@ -86,17 +87,17 @@ public class Match3GameManager : MonoBehaviour {
             }
         }
 
-        print(DeclanHead.Points + "IDH " + WinnieHead.Points + "IWH " + NASSHead.Points + "INH " + CarolHead.Points + "ICH ");
+        //print(DeclanHead.Points + "IDH " + WinnieHead.Points + "IWH " + NASSHead.Points + "INH " + CarolHead.Points + "ICH ");
 
         DestroySquares();
     }
 
     bool NotNeighbour(int x1, int y1, Tile t)
     {
-        if(x1 - 1 < 0 || Board[x1 - 1, y1] == null || Board[x1 - 1, y1].type == t.type) return false;
-        if(x1 + 1 >= sizeX || Board[x1 + 1, y1] == null || Board[x1 + 1, y1].type == t.type) return false;
-        if(y1 - 1 < 0 || Board[x1, y1 - 1] == null || Board[x1, y1 - 1].type == t.type) return false;
-        if(y1 + 1 >= sizeY || Board[x1, y1 + 1] == null || Board[x1, y1 + 1].type == t.type) return false;
+        if (x1 - 1 < 0 || Board[x1 - 1, y1] == null || Board[x1 - 1, y1].type == t.type) return false;
+        if (x1 + 1 >= sizeX || Board[x1 + 1, y1] == null || Board[x1 + 1, y1].type == t.type) return false;
+        if (y1 - 1 < 0 || Board[x1, y1 - 1] == null || Board[x1, y1 - 1].type == t.type) return false;
+        if (y1 + 1 >= sizeY || Board[x1, y1 + 1] == null || Board[x1, y1 + 1].type == t.type) return false;
         return true;
     }
 
@@ -116,7 +117,7 @@ public class Match3GameManager : MonoBehaviour {
     }
     bool Neighbour(int x1, int y1, int x2, int y2)//comprobar que son casillas vecinas
     {
-        if((x1 + 1 == x2 || x1 - 1 == x2 || x1 == x2) && (y1 - 1 == y2 || y1 + 1 == y2 || y1 == y2))
+        if ((x1 + 1 == x2 || x1 - 1 == x2 || x1 == x2) && (y1 - 1 == y2 || y1 + 1 == y2 || y1 == y2))
         {
             return false;
         }
@@ -148,13 +149,20 @@ public class Match3GameManager : MonoBehaviour {
 
         bool sw = SquaresEliminated.Count == 0;
 
-        foreach(Tile t in SquaresEliminated)
+        foreach (Tile t in SquaresEliminated)
         {
-            if(t != null)
+            if (t != null)
             {
                 if (t.GetComponent<Box>())
                 {
                     int Xposition = Random.Range(0, sizeX);
+                    if (Board[Xposition, sizeY] != null)
+                    {
+                        while (Board[Xposition, sizeY].GetComponent<Box>())
+                        {
+                            Xposition = Random.Range(0, sizeX);
+                        }
+                    }
                     CreateTile(t.x, t.y + sizeY);
                     CreateHead(Xposition, sizeY, t.GetComponent<Box>());
                     Destroy(t.gameObject);
@@ -167,13 +175,13 @@ public class Match3GameManager : MonoBehaviour {
             }
         }
 
-        if(!sw)
+        if (!sw)
             StartCoroutine(BoardUpdate());
     }
 
     void addPoints(List<Tile> Squares)
     {
-        foreach(Tile t in Squares)
+        foreach (Tile t in Squares)
         {
             switch (t.type)
             {
@@ -190,7 +198,7 @@ public class Match3GameManager : MonoBehaviour {
                     DeclanHead.Points++;
                     break;
             }
-            if(t.GetComponent<Box>())
+            if (t.GetComponent<Box>())
             {
                 switch (t.type)
                 {
@@ -213,8 +221,8 @@ public class Match3GameManager : MonoBehaviour {
                 }
             }
         }
-        print(DeclanPoints + "D " + WinniePoints + "W " + NASSPoints + "N " + CarolPoints + "C ");
-        print(DeclanHead.Points + "DH " + WinnieHead.Points + "WH " + NASSHead.Points + "NH " + CarolHead.Points + "CH ");
+        //print(DeclanPoints + "D " + WinniePoints + "W " + NASSPoints + "N " + CarolPoints + "C ");
+        //print(DeclanHead.Points + "DH " + WinnieHead.Points + "WH " + NASSHead.Points + "NH " + CarolHead.Points + "CH ");
     }
     IEnumerator BoardUpdate()
     {
@@ -241,8 +249,8 @@ public class Match3GameManager : MonoBehaviour {
     }
     bool Fall(int x, int y)
     {
-        if (x < 0 || x >= sizeX || y <= 0 || y >= sizeY * 2 || Board[x, y] == null || Board[x, y - 1] != null) return false;    
-        MoveTile(x, y, x, y-1);
+        if (x < 0 || x >= sizeX || y <= 0 || y >= sizeY * 2 || Board[x, y] == null || Board[x, y - 1] != null) return false;
+        MoveTile(x, y, x, y - 1);
         return true;
     }
 
@@ -314,7 +322,7 @@ public class Match3GameManager : MonoBehaviour {
     {
         if (Board[x1, y1] != null) Board[x1, y1].transform.position = new Vector3(x2, y2);//Cambio de posición visible de las casillas por pantalla
         if (Board[x2, y2] != null) Board[x2, y2].transform.position = new Vector3(x1, y1);
-            
+
         Tile temp = Board[x1, y1];//Cambio en el propio array de las casillas
         Board[x1, y1] = Board[x2, y2];
         Board[x2, y2] = temp;
@@ -328,12 +336,12 @@ public class Match3GameManager : MonoBehaviour {
         Square.Constructor(this, x, y);
         if (Board[x, y] == null) Board[x, y] = Square;
     }
-    
+
     void CreateHead(int x, int y, Tile t)
     {
+        if (Board[x, y] != null) Destroy(Board[x, y].gameObject);
         Tile Square = Instantiate(t, new Vector3(x, y), Quaternion.identity, transform);
         Square.Constructor(this, x, y);
-        if (Board[x, y] != null) Destroy(Board[x, y].gameObject);
         Board[x, y] = Square;
     }
 }
