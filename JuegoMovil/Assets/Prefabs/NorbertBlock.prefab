@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4330366144822182}
   - component: {fileID: 212765442680622320}
   - component: {fileID: 61488662768641246}
-  - component: {fileID: -2133412195693654528}
+  - component: {fileID: 5607714282575054506}
   m_Layer: 0
-  m_Name: Verde
+  m_Name: NorbertBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578258575756688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: -3.5949368, y: -3.306735, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 55db4e1c5aef11449a1fda3afcc431c4, type: 3}
-  m_Color: {r: 0.43966264, g: 0.78676474, b: 0.5569593, a: 1}
+  m_Sprite: {fileID: 21300000, guid: aaf097db9f27fba408242bc772573e67, type: 3}
+  m_Color: {r: 0.5660378, g: 0.38520005, b: 0.23762906, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.42, y: 1.47}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-2133412195693654528
+--- !u!114 &5607714282575054506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +121,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1578258575756688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f71becb99e29a4c97c39aae51dc64c, type: 3}
+  m_Script: {fileID: 11500000, guid: ded045e32459a2e48b004693fcf9493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Verde
+  type: Marron
   render: {fileID: 0}
-  x: 5
+  x: 0
   y: 0

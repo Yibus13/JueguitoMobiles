@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 61787485299415856}
   - component: {fileID: 422354816918778540}
   m_Layer: 0
-  m_Name: Rojo 1
+  m_Name: DeclanBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
