@@ -124,7 +124,7 @@ public class Match3GameManager : MonoBehaviour
         return true;
     }
 
-    void SwapBoxes(int x1, int y1, int x2, int y2) //cambio de las casillas y comporbar combinaciones etc
+    void SwapBoxes(int x1, int y1, int x2, int y2)//cambio de las casillas y comporbar combinaciones etc
     {
         MoveTile(x1, y1, x2, y2);
 
@@ -134,7 +134,7 @@ public class Match3GameManager : MonoBehaviour
         List<Tile> DestroyArray = Horizontal();
         DestroyArray.AddRange(Vertical());
 
-        if (DestroyArray.Count == 0) MoveTile(x1, y1, x2, y2); //si no hay casillas a eliminar se vuelven a cambiar las posiciones
+        if (DestroyArray.Count == 0) MoveTile(x1, y1, x2, y2);//si no hay casillas a eliminar se vuelven a cambiar las posiciones
 
         DestroySquares();
     }
@@ -156,13 +156,6 @@ public class Match3GameManager : MonoBehaviour
                 if (t.GetComponent<Box>())
                 {
                     int Xposition = Random.Range(0, sizeX);
-                    if (Board[Xposition, sizeY] != null)
-                    {
-                        while (Board[Xposition, sizeY].GetComponent<Box>())
-                        {
-                            Xposition = Random.Range(0, sizeX);
-                        }
-                    }
                     CreateTile(t.x, t.y + sizeY);
                     CreateHead(Xposition, sizeY, t.GetComponent<Box>());
                     Destroy(t.gameObject);
@@ -227,9 +220,9 @@ public class Match3GameManager : MonoBehaviour
     IEnumerator BoardUpdate()
     {
         bool Sw = true;
-        movement = false; //desactivar movimiento mientras se actualiza el tablero
+        movement = false;//desactivar movimiento mientras se actualiza el tablero
 
-        while (Sw) //comprobar constantemente que si hay un espacio vacío se caiga el bloque de arriba
+        while (Sw)//comprobar constantemente que si hay un espacio vacío se caiga el bloque de arriba
         {
             Sw = false;//se resetea todo el rato para el momento en el que no haya mas casillas lo deje de hacer
             for (int j = 0; j < sizeY * 2; j++)
@@ -339,7 +332,11 @@ public class Match3GameManager : MonoBehaviour
 
     void CreateHead(int x, int y, Tile t)
     {
-        if (Board[x, y] != null) Destroy(Board[x, y].gameObject);
+        if (Board[x, y] != null)
+        {
+            while (Board[x, y] != null && Board[x, y].GetComponent<Box>()) y++;
+            if(Board[x, y] != null) Destroy(Board[x, y].gameObject);
+        }
         Tile Square = Instantiate(t, new Vector3(x, y), Quaternion.identity, transform);
         Square.Constructor(this, x, y);
         Board[x, y] = Square;
