@@ -72,17 +72,23 @@ public class Match3GameManager : MonoBehaviour
             CreateHead(x, y, b);
             switch (b.type)
             {
-                case "Amarillo":
+                case "Naranja":
                     CarolHead = b;
                     break;
                 case "Azul":
                     NASSHead = b;
                     break;
-                case "Rojo":
+                case "Rosa":
                     WinnieHead = b;
                     break;
-                case "Verde":
+                case "Rojo":
                     DeclanHead = b;
+                    break;
+                case "AzulC":
+                    G470Head = b;
+                    break;
+                case "Marron":
+                    NorbertHead = b;
                     break;
             }
         }
@@ -178,17 +184,23 @@ public class Match3GameManager : MonoBehaviour
         {
             switch (t.type)
             {
-                case "Amarillo":
+                case "Naranja":
                     CarolHead.Points++;
                     break;
                 case "Azul":
                     NASSHead.Points++;
                     break;
-                case "Rojo":
+                case "Rosa":
                     WinnieHead.Points++;
                     break;
-                case "Verde":
+                case "Rojo":
                     DeclanHead.Points++;
+                    break;
+                case "Marron":
+                    NorbertHead.Points++;
+                    break;
+                case "AzulC":
+                    G470Head.Points++;
                     break;
             }
             if (t.GetComponent<Box>())
@@ -214,8 +226,8 @@ public class Match3GameManager : MonoBehaviour
                 }
             }
         }
-        //print(DeclanPoints + "D " + WinniePoints + "W " + NASSPoints + "N " + CarolPoints + "C ");
-        //print(DeclanHead.Points + "DH " + WinnieHead.Points + "WH " + NASSHead.Points + "NH " + CarolHead.Points + "CH ");
+        print(DeclanPoints + "D " + WinniePoints + "W " + NASSPoints + "N " + CarolPoints + "C ");
+        print(DeclanHead.Points + "DH " + WinnieHead.Points + "WH " + NASSHead.Points + "NH " + CarolHead.Points + "CH ");
     }
     IEnumerator BoardUpdate()
     {

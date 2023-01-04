@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f71becb99e29a4c97c39aae51dc64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Amarillo
+  type: AzulC
   render: {fileID: 0}
   x: 5
   y: 0
-  Points: 3
+  Points: 0
