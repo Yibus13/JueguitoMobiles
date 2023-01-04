@@ -48,8 +48,6 @@ public class Match3GameManager : MonoBehaviour
 
     void Start()
     {
-        print(DeclanPoints + "ID " + WinniePoints + "IW " + NASSPoints + "IN " + CarolPoints + "IC ");
-
         Board = new Tile[sizeX, sizeY * 2];
         for (int i = 0; i < sizeX; i++)
         {
@@ -93,7 +91,8 @@ public class Match3GameManager : MonoBehaviour
             }
         }
 
-        //print(DeclanHead.Points + "IDH " + WinnieHead.Points + "IWH " + NASSHead.Points + "INH " + CarolHead.Points + "ICH ");
+        print(DeclanHead.Points + "IDH " + WinnieHead.Points + "IWH " + NASSHead.Points + "INH " + CarolHead.Points + "ICH " + NorbertHead.Points + "INOH " + G470Head.Points + "IGH ");
+        print(DeclanPoints + "ID " + WinniePoints + "IW " + NASSPoints + "IN " + CarolPoints + "IC " + NorbertPoints + "INO " + G470Points + "IG");
 
         DestroySquares();
     }
@@ -200,14 +199,14 @@ public class Match3GameManager : MonoBehaviour
                     NorbertHead.Points++;
                     break;
                 case "AzulC":
-                    G470Head.Points++;//cosa
+                    G470Head.Points++;
                     break;
             }
             if (t.GetComponent<Box>())
             {
                 switch (t.type)
                 {
-                    case "Amarillo":
+                    case "Naranja":
                         CarolPoints += CarolHead.Points;
                         CarolHead.Points = 0;
                         break;
@@ -215,19 +214,27 @@ public class Match3GameManager : MonoBehaviour
                         NASSPoints += NASSHead.Points;
                         NASSHead.Points = 0;
                         break;
-                    case "Rojo":
+                    case "Rosa":
                         WinniePoints += WinnieHead.Points;
                         WinnieHead.Points = 0;
                         break;
-                    case "Verde":
+                    case "Rojo":
                         DeclanPoints += DeclanHead.Points;
                         DeclanHead.Points = 0;
+                        break;
+                    case "Marron":
+                        NorbertPoints += NorbertHead.Points;
+                        NorbertHead.Points = 0;
+                        break;
+                    case "AzulC":
+                        G470Points += G470Head.Points;
+                        G470Head.Points = 0;
                         break;
                 }
             }
         }
-        print(DeclanPoints + "D " + WinniePoints + "W " + NASSPoints + "N " + CarolPoints + "C ");
-        print(DeclanHead.Points + "DH " + WinnieHead.Points + "WH " + NASSHead.Points + "NH " + CarolHead.Points + "CH ");
+        print(DeclanPoints + "D " + WinniePoints + "W " + NASSPoints + "N " + CarolPoints + "C " + NorbertPoints + "N " + G470Points + "G ");
+        print(DeclanHead.Points + "DH " + WinnieHead.Points + "WH " + NASSHead.Points + "NH " + CarolHead.Points + "CH " + NorbertHead.Points + "NH " + G470Head.Points + "GH ");
     }
     IEnumerator BoardUpdate()
     {
