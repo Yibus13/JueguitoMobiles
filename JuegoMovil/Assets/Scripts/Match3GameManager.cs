@@ -200,7 +200,7 @@ public class Match3GameManager : MonoBehaviour
                     NorbertHead.Points++;
                     break;
                 case "AzulC":
-                    G470Head.Points++;
+                    G470Head.Points++;//cosa
                     break;
             }
             if (t.GetComponent<Box>())
