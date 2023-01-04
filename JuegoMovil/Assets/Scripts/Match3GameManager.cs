@@ -36,7 +36,9 @@ public class Match3GameManager : MonoBehaviour
 
     [SerializeField]
     Box CarolHead;
+    [SerializeField]
     Box NorbertHead;
+    [SerializeField]
     Box G470Head;
     [SerializeField]
     Box NASSHead;
@@ -95,6 +97,7 @@ public class Match3GameManager : MonoBehaviour
         print(DeclanPoints + "ID " + WinniePoints + "IW " + NASSPoints + "IN " + CarolPoints + "IC " + NorbertPoints + "INO " + G470Points + "IG");
 
         DestroySquares();
+        movement = true;
     }
 
     bool NotNeighbour(int x1, int y1, Tile t)
