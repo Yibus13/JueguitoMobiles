@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Match3GameManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Match3GameManager : MonoBehaviour
     [SerializeField]
     int sizeX;
     public int sizeY;
+    public int movements = 2;
 
     [SerializeField]
     Tile[] Squares;
@@ -116,12 +118,17 @@ public class Match3GameManager : MonoBehaviour
         dragY = square.y;
     }
 
-    public void Drop(Tile square)//cuando se suelte el ratos se verán los valores de la casilla en la que se han soltado si se cumplen las condiciones se realiza el cambio
+    public void Drop(Tile square)//cuando se suelte el raton se verán los valores de la casilla en la que se han soltado si se cumplen las condiciones se realiza el cambio
     {
         if (!movement) return;
         if (dragX == -1 || dragY == -1) return;
         if (Neighbour(dragX, dragY, square.x, square.y)) return;
         SwapBoxes(dragX, dragY, square.x, square.y);
+        movements--;
+        if (movements <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
     bool Neighbour(int x1, int y1, int x2, int y2)//comprobar que son casillas vecinas
     {
@@ -242,18 +249,18 @@ public class Match3GameManager : MonoBehaviour
     IEnumerator BoardUpdate()
     {
         bool Sw = true;
-        movement = false;//desactivar movimiento mientras se actualiza el tablero
+        movement = false; //desactivar movimiento mientras se actualiza el tablero
 
-        while (Sw)//comprobar constantemente que si hay un espacio vacío se caiga el bloque de arriba
+        while (Sw) //comprobar constantemente que si hay un espacio vacío se caiga el bloque de arriba
         {
-            Sw = false;//se resetea todo el rato para el momento en el que no haya mas casillas lo deje de hacer
+            Sw = false; //se resetea todo el rato para el momento en el que no haya mas casillas lo deje de hacer
             for (int j = 0; j < sizeY * 2; j++)
             {
                 for (int i = 0; i < sizeX; i++)
                 {
                     if (Fall(i, j))
                     {
-                        Sw = true;//se pone para seguir comprobando
+                        Sw = true; //se pone para seguir comprobando
                     }
                 }
                 if (j <= sizeY) yield return null;
@@ -269,27 +276,27 @@ public class Match3GameManager : MonoBehaviour
         return true;
     }
 
-    List<Tile> Vertical()//funcion para comprobar si verticalmente coinciden las casillas
+    List<Tile> Vertical() //funcion para comprobar si verticalmente coinciden las casillas
     {
         List<Tile> Matched = new List<Tile>();
         List<Tile> Aux = new List<Tile>();
-        string Type = "";//se establece una variable para guardar el tipo que se esta comprobando
+        string Type = ""; //se establece una variable para guardar el tipo que se esta comprobando
 
         for (int i = 0; i < sizeX; i++)
         {
             for (int j = 0; j < sizeY; j++)
             {
                 if (Type == "") Type = Board[i, j].type;
-                if (Board[i, j].type == Type) Aux.Add(Board[i, j]);//si son iguales al tipo se van guardando en un array de auxiliares
+                if (Board[i, j].type == Type) Aux.Add(Board[i, j]); //si son iguales al tipo se van guardando en un array de auxiliares
                 else
-                {
-                    if (Aux.Count >= 3)//en el momento en el que no sean iguales al tipo se comprueba si el tamaño del array de auxiliares es mayor o igual que 3, si lo es, se ponen en el array para eliminarse
+                { 
+                    if (Aux.Count >= 3) //en el momento en el que no sean iguales al tipo se comprueba si el tamaño del array de auxiliares es mayor o igual que 3, si lo es, se ponen en el array para eliminarse
                     {
                         Matched.AddRange(Aux);
                     }
-                    Aux.Clear();//se borra el auxiliar para empezar de nuevo
+                    Aux.Clear(); //se borra el auxiliar para empezar de nuevo
                     Type = Board[i, j].type;
-                    Aux.Add(Board[i, j]);//se cambia el tipo y se mete la casilla
+                    Aux.Add(Board[i, j]); //se cambia el tipo y se mete la casilla
                 }
             }
             if (Aux.Count >= 3)//cuando se acaba se vuelve a comprobar
@@ -298,6 +305,7 @@ public class Match3GameManager : MonoBehaviour
             }
             Aux.Clear();
         }
+        
         return Matched;
     }
 
@@ -344,6 +352,7 @@ public class Match3GameManager : MonoBehaviour
 
         if (Board[x1, y1] != null) Board[x1, y1].ChangePosition(x1, y1);//Cambio de la posición interna de las casillas
         if (Board[x2, y2] != null) Board[x2, y2].ChangePosition(x2, y2);
+        
     }
     void CreateTile(int x, int y)
     {
