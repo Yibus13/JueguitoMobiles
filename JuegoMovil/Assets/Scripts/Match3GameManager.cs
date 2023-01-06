@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Match3GameManager : MonoBehaviour
 {
+
+    public TMP_Text CarolScore;
+    public TMP_Text DeclanScore;
+    public TMP_Text G470Score;
+    public TMP_Text NassScore;
+    public TMP_Text NorbertScore;
+    public TMP_Text WinnieScore;
 
     Tile[,] Board;
 
     [SerializeField]
     int sizeX;
     public int sizeY;
-    public int movements = 2;
+    public int movements = 25;
 
     [SerializeField]
     Tile[] Squares;
@@ -125,10 +133,10 @@ public class Match3GameManager : MonoBehaviour
         if (Neighbour(dragX, dragY, square.x, square.y)) return;
         SwapBoxes(dragX, dragY, square.x, square.y);
         movements--;
-        if (movements <= 0)
+        /*if (movements <= 0)
         {
             SceneManager.LoadScene("GameOver");
-        }
+        }*/
     }
     bool Neighbour(int x1, int y1, int x2, int y2)//comprobar que son casillas vecinas
     {
@@ -218,26 +226,32 @@ public class Match3GameManager : MonoBehaviour
                 {
                     case "Naranja":
                         CarolPoints += CarolHead.Points;
+                        CarolScore.text = CarolPoints.ToString();
                         CarolHead.Points = 0;
                         break;
                     case "Azul":
                         NASSPoints += NASSHead.Points;
+                        NassScore.text = NASSPoints.ToString();
                         NASSHead.Points = 0;
                         break;
                     case "Rosa":
                         WinniePoints += WinnieHead.Points;
+                        WinnieScore.text = WinniePoints.ToString();
                         WinnieHead.Points = 0;
                         break;
                     case "Rojo":
                         DeclanPoints += DeclanHead.Points;
+                        DeclanScore.text = DeclanPoints.ToString();
                         DeclanHead.Points = 0;
                         break;
                     case "Marron":
                         NorbertPoints += NorbertHead.Points;
+                        NorbertScore.text = NorbertPoints.ToString();
                         NorbertHead.Points = 0;
                         break;
                     case "AzulC":
                         G470Points += G470Head.Points;
+                        G470Score.text = G470Points.ToString();
                         G470Head.Points = 0;
                         break;
                 }
