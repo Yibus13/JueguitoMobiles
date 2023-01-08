@@ -8,15 +8,11 @@ public class Levels : MonoBehaviour
     public List<Button> levels;
     private void Start()
     {
-        foreach(Button l in levels)
+       
+        foreach (Button l in levels)
         {
             l.interactable = false;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         levels[0].interactable = true;
         if (BetweenScenes.level1 == true)
         {
@@ -30,5 +26,18 @@ public class Levels : MonoBehaviour
         {
             levels[3].interactable = true;
         }
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+   
+        
+        
+    }
+    public void ah()
+    {
+        Debug.Log("hola");
     }
 }
