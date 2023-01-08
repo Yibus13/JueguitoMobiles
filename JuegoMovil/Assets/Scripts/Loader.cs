@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Loader : MonoBehaviour
 {
     public Animator transition;
@@ -16,7 +17,7 @@ public class Loader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene("Nivel 1");
+        SceneManager.LoadScene("Nivel1");
     }
     public void playLevel2()
     {
@@ -27,7 +28,7 @@ public class Loader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene("Nivel 2");
+        SceneManager.LoadScene("Nivel2");
     }
     public void playLevel3()
     {
@@ -38,7 +39,7 @@ public class Loader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene("Nivel 3");
+        SceneManager.LoadScene("Nivel3");
     }
     public void playLevel4()
     {
@@ -49,7 +50,7 @@ public class Loader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene("Nivel 4");
+        SceneManager.LoadScene("Nivel4");
     }
 
     public void playMenu()

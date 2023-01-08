@@ -112,7 +112,7 @@ Animator:
   m_GameObject: {fileID: 662173361699781925}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: c9c36421dbb448c4ea31640a9de84614, type: 2}
+  m_Controller: {fileID: 22100000, guid: 8b9b17868bce1be4aa392bb23dbb1297, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -221,7 +221,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2613511556311890006}
-  - component: {fileID: 7765271389004136608}
   m_Layer: 0
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -246,20 +245,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7765271389004136608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3990428359787506229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af161cab81214ab4a9292e68615e08cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transition: {fileID: 1852685356348726313}
-  transitionTime: 1
 --- !u!1 &7267672300186149024
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +357,7 @@ Animator:
   m_GameObject: {fileID: 7267672300186149024}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a0b14738777e3964f82e8992eee6bb81, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1fbdf0d46445ccd48a18e14a7098a20d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
