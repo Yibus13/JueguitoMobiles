@@ -25,10 +25,9 @@ public class Match3GameManager : MonoBehaviour
 
     public TMP_Text Movements;
 
-    Tile[,] Board;
+    public Tile[,] Board;
 
-    [SerializeField]
-    int sizeX;
+    public int sizeX;
     public int sizeY;
     public int movements = 25;
 
