@@ -82,6 +82,7 @@ public class Match3GameManager : MonoBehaviour
 
     void Start()
     {
+        BetweenScenes.level = level_id;
         Movements.text = movements.ToString();
         Board = new Tile[sizeX, sizeY * 2];
         for (int i = 0; i < sizeX; i++)
