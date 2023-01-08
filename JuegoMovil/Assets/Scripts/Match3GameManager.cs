@@ -174,6 +174,7 @@ public class Match3GameManager : MonoBehaviour
 
     void SwapBoxes(int x1, int y1, int x2, int y2)//cambio de las casillas y comporbar combinaciones etc
     {
+        GameObject.Find("SoundManager").GetComponent<AudioManager>().Play("Swap");
         MoveTile(x1, y1, x2, y2);
 
         dragX = -1;//resetear los valores
