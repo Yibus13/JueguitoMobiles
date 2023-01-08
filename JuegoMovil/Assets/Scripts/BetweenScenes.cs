@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BetweenScenes : MonoBehaviour
 {
-    public static int levelsCompleted = 0;
+    public static int level = 0;
     public static bool level1 = false;
     public static bool level2 = false;
     public static bool level3 = false;

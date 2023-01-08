@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723879874}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Loader, Assembly-CSharp
         m_MethodName: playLevel4
         m_Mode: 1
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723879874}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Loader, Assembly-CSharp
         m_MethodName: playLevel3
         m_Mode: 1
@@ -711,7 +711,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723879874}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Loader, Assembly-CSharp
         m_MethodName: playLevel2
         m_Mode: 1
@@ -950,7 +950,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723879874}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Loader, Assembly-CSharp
         m_MethodName: playMenu
         m_Mode: 1
@@ -1459,25 +1459,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652544726}
   m_CullTransparentMesh: 1
---- !u!1 &1723879873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3990428359787506229, guid: 3a832e595068340498536328eaafa265, type: 3}
-  m_PrefabInstance: {fileID: 1428942735}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1723879874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723879873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b412ec70d9acbfd4d80169e0dae95570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transition: {fileID: 2138024774}
-  transitionTime: 1
 --- !u!1 &1862328598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,7 +1834,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723879874}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Loader, Assembly-CSharp
         m_MethodName: playLevel1
         m_Mode: 1
@@ -1925,8 +1906,3 @@ RectTransform:
   m_AnchoredPosition: {x: -98, y: 91}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &2138024774 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1852685356348726313, guid: 3a832e595068340498536328eaafa265, type: 3}
-  m_PrefabInstance: {fileID: 1428942735}
-  m_PrefabAsset: {fileID: 0}

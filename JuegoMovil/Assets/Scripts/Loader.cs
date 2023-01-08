@@ -64,4 +64,39 @@ public class Loader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("MainMenu");
     }
+    public void playLevels()
+    {
+        StartCoroutine(LoadLevels());
+        Time.timeScale = 1f;
+    }
+    IEnumerator LoadLevels()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene("LevelSelection");
+    }
+
+    public void playGameOver()
+    {
+        StartCoroutine(LoadGameOver());
+        Time.timeScale = 1f;
+    }
+    IEnumerator LoadGameOver()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene("GameOver");
+    }
+    public void playWin()
+    {
+        StartCoroutine(LoadWin());
+        Time.timeScale = 1f;
+    }
+    IEnumerator LoadWin()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene("Win");
+    }
+
 }
