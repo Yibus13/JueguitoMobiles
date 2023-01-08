@@ -80,7 +80,7 @@ public class Match3GameManager : MonoBehaviour
     [SerializeField]
     int WinnieWin;
 
-    void Start()
+    public void Start()
     {
         BetweenScenes.level = level_id;
         Movements.text = movements.ToString();
