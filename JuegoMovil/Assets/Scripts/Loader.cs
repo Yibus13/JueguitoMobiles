@@ -66,6 +66,7 @@ public class Loader : MonoBehaviour
     }
     public void playLevels()
     {
+        print("a");
         StartCoroutine(LoadLevels());
         Time.timeScale = 1f;
     }
