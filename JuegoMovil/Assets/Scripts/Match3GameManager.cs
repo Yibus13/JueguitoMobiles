@@ -15,6 +15,15 @@ public class Match3GameManager : MonoBehaviour
     public TMP_Text NorbertScore;
     public TMP_Text WinnieScore;
 
+    public TMP_Text StarCarolScore;
+    public TMP_Text StarDeclanScore;
+    public TMP_Text StarG470Score;
+    public TMP_Text StarNassScore;
+    public TMP_Text StarNorbertScore;
+    public TMP_Text StarWinnieScore;
+
+    public TMP_Text Movements;
+
     Tile[,] Board;
 
     [SerializeField]
@@ -57,9 +66,23 @@ public class Match3GameManager : MonoBehaviour
     [SerializeField]
     Box WinnieHead;
 
+    [SerializeField]
+    int CarolWin;
+    [SerializeField]
+    int NorbertWin;
+    [SerializeField]
+    int G470Win;
+    [SerializeField]
+    int NASSWin;
+    [SerializeField]
+    int DeclanWin;
+    [SerializeField]
+    int WinnieWin;
+
 
     void Start()
     {
+        Movements.text = movements.ToString();
         Board = new Tile[sizeX, sizeY * 2];
         for (int i = 0; i < sizeX; i++)
         {
@@ -133,10 +156,11 @@ public class Match3GameManager : MonoBehaviour
         if (Neighbour(dragX, dragY, square.x, square.y)) return;
         SwapBoxes(dragX, dragY, square.x, square.y);
         movements--;
-        /*if (movements <= 0)
+        Movements.text = movements.ToString();
+        if (movements <= 0)
         {
             SceneManager.LoadScene("GameOver");
-        }*/
+        }
     }
     bool Neighbour(int x1, int y1, int x2, int y2)//comprobar que son casillas vecinas
     {
@@ -160,6 +184,11 @@ public class Match3GameManager : MonoBehaviour
         if (DestroyArray.Count == 0) MoveTile(x1, y1, x2, y2);//si no hay casillas a eliminar se vuelven a cambiar las posiciones
 
         DestroySquares();
+
+        if(CarolPoints >= CarolWin && DeclanPoints >= DeclanWin && NorbertPoints >= NorbertWin && G470Points >= G470Win && NASSPoints >= NASSWin && WinniePoints >= WinnieWin)
+        {
+            SceneManager.LoadScene("Win");
+        }
     }
     void DestroySquares()
     {
@@ -203,21 +232,27 @@ public class Match3GameManager : MonoBehaviour
             {
                 case "Naranja":
                     CarolHead.Points++;
+                    StarCarolScore.text = CarolHead.Points.ToString();
                     break;
                 case "Azul":
                     NASSHead.Points++;
+                    StarNassScore.text = NASSHead.Points.ToString();
                     break;
                 case "Rosa":
                     WinnieHead.Points++;
+                    StarWinnieScore.text = WinnieHead.Points.ToString();
                     break;
                 case "Rojo":
                     DeclanHead.Points++;
+                    StarDeclanScore.text = DeclanHead.Points.ToString();
                     break;
                 case "Marron":
                     NorbertHead.Points++;
+                    StarNorbertScore.text = NorbertHead.Points.ToString();
                     break;
                 case "AzulC":
                     G470Head.Points++;
+                    StarG470Score.text = G470Head.Points.ToString();
                     break;
             }
             if (t.GetComponent<Box>())
