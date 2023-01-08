@@ -7,6 +7,7 @@ using TMPro;
 
 public class Match3GameManager : MonoBehaviour
 {
+    public int level_id;
 
     public TMP_Text CarolScore;
     public TMP_Text DeclanScore;
@@ -78,7 +79,6 @@ public class Match3GameManager : MonoBehaviour
     int DeclanWin;
     [SerializeField]
     int WinnieWin;
-
 
     void Start()
     {
