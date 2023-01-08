@@ -187,6 +187,18 @@ public class Match3GameManager : MonoBehaviour
 
         if(CarolPoints >= CarolWin && DeclanPoints >= DeclanWin && NorbertPoints >= NorbertWin && G470Points >= G470Win && NASSPoints >= NASSWin && WinniePoints >= WinnieWin)
         {
+            switch (level_id)
+            {
+                case 0:
+                    BetweenScenes.level1 = true;
+                    break;
+                case 1:
+                    BetweenScenes.level2 = true;
+                    break;
+                case 2:
+                    BetweenScenes.level3 = true;
+                    break;
+            }
             SceneManager.LoadScene("Win");
         }
     }

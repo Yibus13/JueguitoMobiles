@@ -3037,8 +3037,8 @@ MonoBehaviour:
   NorbertWin: 0
   G470Win: 0
   NASSWin: 0
-  DeclanWin: 1
-  WinnieWin: 1
+  DeclanWin: 0
+  WinnieWin: 0
 --- !u!1 &1411427093
 GameObject:
   m_ObjectHideFlags: 0
