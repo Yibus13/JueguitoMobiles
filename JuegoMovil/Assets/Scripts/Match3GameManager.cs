@@ -190,6 +190,7 @@ public class Match3GameManager : MonoBehaviour
         DestroyArray.AddRange(Vertical());
 
         if (DestroyArray.Count == 0) MoveTile(x1, y1, x2, y2);//si no hay casillas a eliminar se vuelven a cambiar las posiciones
+        else GameObject.Find("SoundManager").GetComponent<AudioManager>().Play("Destroy");
 
         DestroySquares();
 
@@ -213,6 +214,7 @@ public class Match3GameManager : MonoBehaviour
     }
     void DestroySquares()
     {
+        
         List<Tile> SquaresEliminated = Horizontal();
         SquaresEliminated.AddRange(Vertical());
 

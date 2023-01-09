@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA1Completado!"
+  m_text: Completed!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 422d9c6fd91d37f498a085e4ff7d4bbb, type: 2}
   m_sharedMaterial: {fileID: 5245883994495419976, guid: 422d9c6fd91d37f498a085e4ff7d4bbb, type: 2}
@@ -885,7 +885,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Niveles
+  m_Text: Levels
 --- !u!222 &1788848593
 CanvasRenderer:
   m_ObjectHideFlags: 0
