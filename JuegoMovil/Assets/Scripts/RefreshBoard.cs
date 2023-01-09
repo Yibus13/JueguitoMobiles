@@ -21,6 +21,7 @@ public class RefreshBoard : MonoBehaviour
         }
         manager.Start();
         manager.movements--;
+        manager.Movements.text = manager.movements.ToString();
         if (manager.movements <= 0)
         {
             SceneManager.LoadScene("GameOver");

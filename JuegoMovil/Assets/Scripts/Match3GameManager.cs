@@ -79,11 +79,19 @@ public class Match3GameManager : MonoBehaviour
     [SerializeField]
     int WinnieWin;
 
-    public void Start()
+    public void Awake()
     {
         BetweenScenes.level = level_id;
         Movements.text = movements.ToString();
         Board = new Tile[sizeX, sizeY * 2];
+        foreach(Box b in Heads)
+        {
+            b.Points = 0;
+        }
+    }
+    public void Start()
+    {
+       
         for (int i = 0; i < sizeX; i++)
         {
             for (int j = 0; j < sizeY; j++)
@@ -94,7 +102,6 @@ public class Match3GameManager : MonoBehaviour
 
         foreach (Box b in Heads)//Creación de las cabezas
         {
-            b.Points = 0;
             int x = 0;
             int y = 0;
             do
