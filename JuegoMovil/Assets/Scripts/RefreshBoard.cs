@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RefreshBoard : MonoBehaviour
 {
-    public Match3GameManager manager;
+    public ManagerGame manager;
     public void refresh()
     {
         for(int i = 0; i < manager.sizeX; i++)

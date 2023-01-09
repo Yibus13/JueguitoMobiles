@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Match3GameManager : MonoBehaviour
+public class ManagerGame : MonoBehaviour
 {
     public int level_id;
 

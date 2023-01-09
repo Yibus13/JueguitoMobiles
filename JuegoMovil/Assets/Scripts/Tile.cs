@@ -6,13 +6,13 @@ public class Tile : MonoBehaviour
 {
     public string type;
 
-    Match3GameManager gameManager;
+    ManagerGame gameManager;
     [HideInInspector]
     public SpriteRenderer render;
 
     public int x, y;
 
-    public void Constructor(Match3GameManager GameManager, int X, int Y)
+    public void Constructor(ManagerGame GameManager, int X, int Y)
     {        
         x = X;
         y = Y;
