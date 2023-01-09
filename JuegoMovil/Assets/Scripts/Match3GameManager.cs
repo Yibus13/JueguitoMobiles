@@ -37,6 +37,7 @@ public class Match3GameManager : MonoBehaviour
     Box[] Heads;
 
     bool movement = false;
+    bool Win = false;
 
     int dragX, dragY = -1;
 
@@ -90,8 +91,7 @@ public class Match3GameManager : MonoBehaviour
         }
     }
     public void Start()
-    {
-       
+    {      
         for (int i = 0; i < sizeX; i++)
         {
             for (int j = 0; j < sizeY; j++)
@@ -164,7 +164,7 @@ public class Match3GameManager : MonoBehaviour
         SwapBoxes(dragX, dragY, square.x, square.y);
         movements--;
         Movements.text = movements.ToString();
-        if (movements <= 0)
+        if (movements <= 0 && !Win)
         {
             SceneManager.LoadScene("GameOver");
         }
@@ -195,6 +195,7 @@ public class Match3GameManager : MonoBehaviour
 
         if(CarolPoints >= CarolWin && DeclanPoints >= DeclanWin && NorbertPoints >= NorbertWin && G470Points >= G470Win && NASSPoints >= NASSWin && WinniePoints >= WinnieWin)
         {
+            Win = true;
             switch (level_id)
             {
                 case 0:
