@@ -3154,7 +3154,7 @@ MonoBehaviour:
   Movements: {fileID: 1560729398}
   sizeX: 8
   sizeY: 6
-  movements: 15
+  movements: 10
   Squares:
   - {fileID: -5116545557831934054, guid: 83f1cfcd399a36e4dbe63ad130dc66db, type: 3}
   - {fileID: -5802668437832740132, guid: 99a5cde1e939004478d05301007b846b, type: 3}
